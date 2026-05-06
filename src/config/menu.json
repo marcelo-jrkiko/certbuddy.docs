@@ -1,0 +1,84 @@
+{
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting Started",
+      "items": [
+        {
+          "id": "introduction",
+          "title": "Introduction",
+          "component": "IntroductionPage"
+        },
+        {
+          "id": "installation",
+          "title": "Installation",
+          "component": "InstallationPage"
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "Features",
+      "items": [
+        {
+          "id": "core-features",
+          "title": "Core Features",
+          "component": "CoreFeaturesPage"
+        },
+        {
+          "id": "advanced-features",
+          "title": "Advanced Features",
+          "component": "AdvancedFeaturesPage"
+        }
+      ]
+    },
+    {
+      "id": "guides",
+      "title": "Guides",
+      "items": [
+        {
+          "id": "quick-start",
+          "title": "Quick Start Guide",
+          "component": "QuickStartPage"
+        },
+        {
+          "id": "best-practices",
+          "title": "Best Practices",
+          "component": "BestPracticesPage"
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "title": "API Reference",
+      "items": [
+        {
+          "id": "rest-api",
+          "title": "REST API",
+          "component": "RestApiPage"
+        },
+        {
+          "id": "webhooks",
+          "title": "Webhooks",
+          "component": "WebhooksPage"
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "title": "Support",
+      "items": [
+        {
+          "id": "faq",
+          "title": "FAQ",
+          "component": "FaqPage"
+        },
+        {
+          "id": "troubleshooting",
+          "title": "Troubleshooting",
+          "component": "TroubleshootingPage"
+        }
+      ]
+    }
+  ]
+}
