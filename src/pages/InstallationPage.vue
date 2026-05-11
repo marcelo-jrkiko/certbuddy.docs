@@ -4,25 +4,62 @@
     <p>
       Get started with CertBuddy by following these simple installation steps.
     </p>
-    <h3>Prerequisites</h3>
+    <h3>Basic Concepts</h3>
+    <p>
+      CertBuddy consists of three main components:
+    </p>
     <ul>
-      <li>Node.js 14.0 or higher</li>
-      <li>npm or yarn package manager</li>
-      <li>Git</li>
+      <li><strong>Backend:</strong> The core service that handles certificate management and API requests.</li>
+      <li><strong>Data Backend:</strong> Responsible for storing certificate data and related information. In this case is Directus.</li>
+      <li><strong>Frontend:</strong> The user interface for managing certificates and viewing status.</li>
     </ul>
-    <h3>Installation Steps</h3>
-    <ol>
-      <li>Clone the repository</li>
-      <li>Install dependencies</li>
-      <li>Configure your environment</li>
-      <li>Run the application</li>
-    </ol>
+
+    <h3>Basic Environment Variables</h3>
+    <p>
+      Before starting the services, make sure to set the following environment variables in a .env file or directly in your environment, 
+      copy the .env.sample to .env and make the necessary changes.
+    </p>
+    
+
     <h3>Docker Installation</h3>
     <p>
-      If you prefer using Docker, you can pull the official CertBuddy image:
+      The fastest way to get CertBuddy up and running is by using Docker with the included docker-compose.yml file.
+      This will set up both the backend, data backend and frontend services with a single command.
     </p>
-    <pre><code>docker pull certbuddy/app:latest
-docker run -p 3000:3000 certbuddy/app:latest</code></pre>
+    <h3>Prerequisites</h3>
+    <ul>
+      <li>Docker</li>
+      <li>Docker Compose</li>
+    </ul>
+    <h3>Steps</h3>
+    <pre><code>docker-compose up -d</code></pre>
+
+    <h3>Importing the Directus Schema</h3>
+    <p>
+      After starting the services, you need to import the Directus schema to set up the necessary database structure.
+      The schema file is avaliable in the project root as <code>./shared/Schema.yaml</code>.
+    </p>
+    <h4>Copy to Docker Container and Importing</h4>
+    <pre>
+    <code>
+      docker compose cp ./shared/Schema.yaml data_backend:/Schema.yaml
+      npx directus schema import --file /Schema.yaml
+    </code>
+    </pre>
+    <h4>(Alternative) Restore the PostgreSQL Database Dump</h4>
+    <p>
+      Alternatively, you can restore the provided database dump which already contains the necessary schema and some sample data.
+      The dump file is avaliable in the link below:
+    </p>
+    <pre>
+    <code>
+      docker compose cp Dump.sql db:/DatabaseDump.sql
+      docker compose exec db psql -U postgres -d certbuddy -f /DatabaseDump.sql
+    </code>
+    </pre> 
+    <p>
+      PS: When restoring the database dump, you need to change the admin user password in the database or via CLI.
+    </p>   
   </article>
 </template>
 

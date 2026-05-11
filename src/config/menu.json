@@ -1,82 +1,102 @@
 {
   "sections": [
     {
-      "id": "getting-started",
-      "title": "Getting Started",
+      "id": "certbuddy-intro",
+      "title": "CertBuddy Documentation",
       "items": [
         {
-          "id": "introduction",
-          "title": "Introduction",
-          "component": "IntroductionPage"
+          "id": "certbuddy-getting-started",
+          "title": "Getting Started",
+          "component": "CertbuddyGettingStartedPage"
         },
         {
-          "id": "installation",
-          "title": "Installation",
-          "component": "InstallationPage"
+          "id": "certbuddy-architecture",
+          "title": "Application Architecture",
+          "component": "CertbuddyArchitecturePage"
         }
       ]
     },
     {
-      "id": "features",
-      "title": "Features",
+      "id": "certificate-authorities",
+      "title": "Certificate Authorities",
       "items": [
         {
-          "id": "core-features",
-          "title": "Core Features",
-          "component": "CoreFeaturesPage"
+          "id": "ca-overview",
+          "title": "Overview",
+          "component": "CertbuddyCAsOverviewPage"
         },
         {
-          "id": "advanced-features",
-          "title": "Advanced Features",
-          "component": "AdvancedFeaturesPage"
+          "id": "ca-letsencrypt",
+          "title": "Let's Encrypt",
+          "component": "CertbuddyLetsEncryptPage"
+        },
+        {
+          "id": "ca-cloudflare",
+          "title": "Cloudflare Origin CA",
+          "component": "CertbuddyCloudflareOriginCAPage"
         }
       ]
     },
     {
-      "id": "guides",
-      "title": "Guides",
+      "id": "challenge-methods",
+      "title": "Challenge Methods",
       "items": [
         {
-          "id": "quick-start",
-          "title": "Quick Start Guide",
-          "component": "QuickStartPage"
+          "id": "challenge-overview",
+          "title": "Overview",
+          "component": "CertbuddyChallengeOverviewPage"
         },
         {
-          "id": "best-practices",
-          "title": "Best Practices",
-          "component": "BestPracticesPage"
+          "id": "challenge-dns01-cloudflare",
+          "title": "DNS-01 (Cloudflare)",
+          "component": "CertbuddyDNS01CloudflarePage"
+        },
+        {
+          "id": "challenge-http01-local",
+          "title": "HTTP-01 (Local File)",
+          "component": "CertbuddyHTTP01LocalPage"
+        },
+        {
+          "id": "challenge-http01-sftp",
+          "title": "HTTP-01 (SFTP)",
+          "component": "CertbuddyHTTP01SFTPPage"
+        },
+        {
+          "id": "challenge-no-challenge",
+          "title": "No Challenge",
+          "component": "CertbuddyNoChallengedPage"
         }
       ]
     },
     {
-      "id": "api",
-      "title": "API Reference",
+      "id": "certbuddy-technical",
+      "title": "Technical Documentation",
       "items": [
         {
-          "id": "rest-api",
-          "title": "REST API",
-          "component": "RestApiPage"
+          "id": "api-reference",
+          "title": "API Reference",
+          "component": "CertbuddyApiRefPage"
         },
         {
-          "id": "webhooks",
-          "title": "Webhooks",
-          "component": "WebhooksPage"
+          "id": "configuration",
+          "title": "Configuration Guide",
+          "component": "CertbuddyConfigPage"
+        },
+        {
+          "id": "task-scheduler",
+          "title": "Task Scheduler",
+          "component": "CertbuddyTasksPage"
         }
       ]
     },
     {
-      "id": "support",
-      "title": "Support",
+      "id": "certbuddy-deploy",
+      "title": "Deployment & Operations",
       "items": [
         {
-          "id": "faq",
-          "title": "FAQ",
-          "component": "FaqPage"
-        },
-        {
-          "id": "troubleshooting",
-          "title": "Troubleshooting",
-          "component": "TroubleshootingPage"
+          "id": "deployment",
+          "title": "Deployment Guide",
+          "component": "CertbuddyDeploymentPage"
         }
       ]
     }
