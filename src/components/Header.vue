@@ -8,6 +8,15 @@
           <span class="version">v{{ version }}</span>
         </div>
       </div>
+      <a
+        class="github-button"
+        href="https://github.com/marcelo-jrkiko/certbuddy"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open CertBuddy repository on GitHub"
+      >
+        GitHub
+      </a>
     </div>
   </header>
 </template>
@@ -40,6 +49,10 @@ withDefaults(defineProps<Props>(), {
 .header-content {
   max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .logo-section {
@@ -76,9 +89,30 @@ withDefaults(defineProps<Props>(), {
   font-weight: 500;
 }
 
+.github-button {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.github-button:hover {
+  background: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
 @media (max-width: 768px) {
   .header {
     padding: 1rem 1.5rem;
+  }
+
+  .header-content {
+    gap: 0.75rem;
   }
 
   .logo-section {
@@ -92,6 +126,11 @@ withDefaults(defineProps<Props>(), {
 
   .app-title {
     font-size: 1.25rem;
+  }
+
+  .github-button {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.9rem;
   }
 }
 </style>
