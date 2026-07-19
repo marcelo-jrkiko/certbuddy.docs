@@ -31,6 +31,18 @@
         </ul>
         <p><router-link to="/cloudflare-origin">View Details →</router-link></p>
       </div>
+
+      <div class="ca-card">
+        <h4>Self Signed CA</h4>
+        <p>Built-in self-signed certificate issuer for internal and development usage.</p>
+        <ul>
+          <li>✓ No external CA dependency</li>
+          <li>✓ Fast local issuance</li>
+          <li>✓ No ownership challenge required</li>
+          <li>✗ Not publicly trusted</li>
+        </ul>
+        <p>Use challenge type <code>EMPTY</code>.</p>
+      </div>
     </div>
 
     <h3>Quick Comparison</h3>
@@ -68,8 +80,19 @@
           <td>Moderate</td>
           <td>Easy</td>
         </tr>
+        <tr>
+          <td><strong>Best For</strong></td>
+          <td>Public internet TLS</td>
+          <td>Cloudflare-proxied origins</td>
+        </tr>
       </tbody>
     </table>
+
+    <h3>Self Signed Summary</h3>
+    <p>
+      The engine also provides <code>SELF_SIGNED</code> authority with configurable defaults
+      such as validity days and key size. It is ideal for local, private or lab deployments.
+    </p>
 
     <h3>Choosing a CA</h3>
     <ul>

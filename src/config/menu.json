@@ -34,6 +34,11 @@
           "id": "ca-cloudflare",
           "title": "Cloudflare Origin CA",
           "component": "CertbuddyCloudflareOriginCAPage"
+        },
+        {
+          "id": "ca-self-signed",
+          "title": "Self Signed CA",
+          "component": "CertbuddySelfSignedCAPage"
         }
       ]
     },
@@ -50,6 +55,11 @@
           "id": "challenge-dns01-cloudflare",
           "title": "DNS-01 (Cloudflare)",
           "component": "CertbuddyDNS01CloudflarePage"
+        },
+        {
+          "id": "challenge-dns-manual",
+          "title": "DNS-01 (Manual)",
+          "component": "CertbuddyManualDNSPage"
         },
         {
           "id": "challenge-http01-local",
@@ -86,6 +96,16 @@
           "id": "task-scheduler",
           "title": "Task Scheduler",
           "component": "CertbuddyTasksPage"
+        },
+        {
+          "id": "event-listeners",
+          "title": "Event Listeners",
+          "component": "CertbuddyEventListenersPage"
+        },
+        {
+          "id": "interaction-requests",
+          "title": "Interaction Requests",
+          "component": "CertbuddyInteractionRequestsPage"
         }
       ]
     },

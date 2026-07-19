@@ -3,7 +3,23 @@
     <h2>HTTP-01 Challenge: Local File</h2>
     <p>
       HTTP-01 with local file storage is the simplest challenge method. Challenge files are
-      created on the local filesystem and served via HTTP. Only suitable for single-server setups.
+      created on the local filesystem and served via HTTP. In containerized CertBuddy deployments,
+      the backend image already includes an Nginx challenge server that listens on port 8080.
+    </p>
+
+    <h3>Built-in Challenge Server</h3>
+    <p>
+      CertBuddy ships with a built-in web server for HTTP-01 challenge responses.
+      The backend container exposes both the API and challenge server:
+    </p>
+    <ul>
+      <li><strong>Engine API</strong>: port <code>3000</code></li>
+      <li><strong>Challenge Server (Nginx)</strong>: port <code>8080</code></li>
+      <li><strong>Challenge root</strong>: <code>/var/www/http_challenges</code> (default)</li>
+    </ul>
+    <p>
+      Your public reverse proxy should route
+      <code>/.well-known/acme-challenge/*</code> traffic to the challenge server endpoint.
     </p>
 
     <h3>How It Works</h3>
@@ -49,7 +65,7 @@
     <h3>Prerequisites</h3>
     <ul>
       <li><strong>Filesystem Access</strong>: Write access to challenge directory</li>
-      <li><strong>Web Server</strong>: Nginx, Apache, or other HTTP server</li>
+      <li><strong>Reachable HTTP Path</strong>: CA must reach <code>/.well-known/acme-challenge/*</code></li>
       <li><strong>Port 80 Open</strong>: HTTP port must be accessible from internet</li>
       <li><strong>Domain DNS</strong>: Domain must point to your server</li>
       <li><strong>No Firewall Blocking</strong>: Port 80 requests must reach server</li>
@@ -67,9 +83,29 @@ chmod 755 /var/www/certbuddy-challenges
 # Verify
 ls -la /var/www/certbuddy-challenges</code></pre>
 
-    <h4>Step 2: Configure Web Server</h4>
+    <h4>Step 2: Route ACME Path To Challenge Server</h4>
 
-    <h5>Nginx Configuration</h5>
+    <h5>Recommended: Route to CertBuddy Challenge Server</h5>
+    <pre><code>server {
+  listen 80;
+  server_name example.com;
+
+  location /.well-known/acme-challenge/ {
+    proxy_pass http://certbuddy-backend:8080;
+  }
+
+  location / {
+    return 301 https://example.com$request_uri;
+  }
+}</code></pre>
+
+    <h5>Alternative: Serve Challenge Files Directly</h5>
+    <p>
+      If you are not using the bundled challenge server, you can still serve files directly from
+      <code>ENGINE_HTTP_CHALLENGE_DIR</code>.
+    </p>
+
+    <h5>Nginx Static Configuration</h5>
     <pre><code>server {
   listen 80;
   server_name example.com;
@@ -85,7 +121,7 @@ ls -la /var/www/certbuddy-challenges</code></pre>
   }
 }</code></pre>
 
-    <h5>Apache Configuration</h5>
+    <h5>Apache Static Configuration</h5>
     <pre><code>&lt;VirtualHost *:80&gt;
   ServerName example.com
   
@@ -340,7 +376,7 @@ Let's Encrypt
 .flow {
   background: none !important;
   font-size: 0.85rem;
-  whitespace: pre;
+  white-space: pre;
 }
 
 .documentation-page a {

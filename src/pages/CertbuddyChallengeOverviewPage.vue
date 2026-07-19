@@ -19,6 +19,18 @@
         </ul>
         <p><a href="#dns-cloudflare">View Details →</a></p>
       </div>
+
+      <div class="challenge-card">
+        <h4>DNS-01 (Manual)</h4>
+        <p>Manual DNS TXT validation with user approval</p>
+        <ul>
+          <li>✓ Works with any DNS provider</li>
+          <li>✓ No DNS API token required</li>
+          <li>✓ Uses interaction requests</li>
+          <li>✗ Not automatic renewal friendly</li>
+        </ul>
+        <p><a href="#dns-manual">View Details →</a></p>
+      </div>
       
       <div class="challenge-card">
         <h4>HTTP-01 (Local File)</h4>
@@ -78,6 +90,11 @@
           <td>Automated and reliable</td>
         </tr>
         <tr>
+          <td>No DNS API available</td>
+          <td>DNS-01 (Manual)</td>
+          <td>Works with manual operator approval</td>
+        </tr>
+        <tr>
           <td>Multi-server setup</td>
           <td>HTTP-01 (SFTP)</td>
           <td>Works across servers</td>
@@ -94,6 +111,18 @@
         </tr>
       </tbody>
     </table>
+
+    <h3 id="dns-manual">Manual DNS Challenge Notes</h3>
+    <p>
+      The <code>MANUAL_DNS</code> challenge creates an interaction request with DNS record data
+      (record name, token and record type). Issuance continues only after the request is answered.
+    </p>
+    <ul>
+      <li><strong>Request Type</strong>: <code>dns_change</code></li>
+      <li><strong>Default Timeout</strong>: 86400 seconds</li>
+      <li><strong>Poll Interval</strong>: 30 seconds</li>
+      <li><strong>Renewal</strong>: Not marked with <code>can-renew</code></li>
+    </ul>
 
     <h3>Challenge Method Comparison</h3>
     <table class="comparison-table">

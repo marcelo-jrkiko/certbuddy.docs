@@ -463,7 +463,7 @@ Issue Certificate</code></pre>
 .flow {
   background: none !important;
   font-size: 0.85rem;
-  whitespace: pre;
+  white-space: pre;
 }
 
 .documentation-page a {

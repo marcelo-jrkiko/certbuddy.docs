@@ -52,6 +52,14 @@
 
     <h3>Engine Endpoints</h3>
 
+    <h4>Get Available Challenges</h4>
+    <pre><code>GET /engine/available_challenges</code></pre>
+    <p><strong>Description</strong>: Returns challenge keys, display names and config presets.</p>
+
+    <h4>Get Available Certificate Authorities</h4>
+    <pre><code>GET /engine/available_cas</code></pre>
+    <p><strong>Description</strong>: Returns CA keys, display names and config presets.</p>
+
     <h4>Get Event Types</h4>
     <pre><code>GET /engine/events/ids</code></pre>
     <p><strong>Description</strong>: Get available system events</p>
@@ -70,8 +78,8 @@
     <p><strong>Request Body</strong>:</p>
     <pre><code>{
   "domain": "example.com",
-  "challenge_type": "dns-cloudflare",
-  "certificate_authority": "lets-encrypt",
+  "challenge_type": "CLOUDFLARE_DNS",
+  "certificate_authority": "LETSENCRYPT",
   "config": {
     "key": "value"
   }
@@ -103,17 +111,17 @@
 
     <h3>Tasks Endpoints</h3>
 
-    <h4>Get Available Tasks</h4>
-    <pre><code>GET /tasks</code></pre>
-    <p><strong>Description</strong>: Get list of available scheduled tasks</p>
-    <p><strong>Response</strong>: Array of task objects with status and schedule info</p>
+    <h4>Run Task Immediately</h4>
+    <pre><code>GET /tasks/due_now/:name</code></pre>
+    <p><strong>Description</strong>: Trigger a scheduler task by name.</p>
 
-    <h4>Get Task Status</h4>
-    <pre><code>GET /tasks/:task_id</code></pre>
-    <p><strong>Description</strong>: Get status of a specific task</p>
-    <p><strong>Parameters</strong>:</p>
+    <h3>Directus Collections Used By UI</h3>
+    <p>
+      Event listeners and interaction requests are managed through Directus item endpoints.
+    </p>
     <ul>
-      <li><code>task_id</code> (path): ID of the task</li>
+      <li><code>/items/event_listener</code>: Create/edit shell or webhook listeners</li>
+      <li><code>/items/interaction_request</code>: List pending requests and answer/reject them</li>
     </ul>
 
     <h3>Response Status Codes</h3>
