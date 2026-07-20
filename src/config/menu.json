@@ -98,14 +98,40 @@
           "component": "CertbuddyTasksPage"
         },
         {
+          "id": "interaction-requests",
+          "title": "Interaction Requests",
+          "component": "CertbuddyInteractionRequestsPage"
+        }
+      ]
+    },
+    {
+      "id": "certbuddy-events",
+      "title": "Events",
+      "items": [
+        {
           "id": "event-listeners",
           "title": "Event Listeners",
           "component": "CertbuddyEventListenersPage"
         },
         {
-          "id": "interaction-requests",
-          "title": "Interaction Requests",
-          "component": "CertbuddyInteractionRequestsPage"
+          "id": "event-handler-shell-script",
+          "title": "Handler: Shell Script",
+          "component": "CertbuddyEventHandlerShellScriptPage"
+        },
+        {
+          "id": "event-handler-webhook",
+          "title": "Handler: Webhook",
+          "component": "CertbuddyEventHandlerWebhookPage"
+        },
+        {
+          "id": "event-handler-macros",
+          "title": "Macros Reference",
+          "component": "CertbuddyEventMacrosPage"
+        },
+        {
+          "id": "event-types-payloads",
+          "title": "Event Types & Payloads",
+          "component": "CertbuddyEventTypesPage"
         }
       ]
     },
